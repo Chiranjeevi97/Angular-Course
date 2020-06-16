@@ -1,0 +1,33 @@
+<h2> Department-List!</h2>
+<h3> {{errorMsg}}</h3>              <!-- This is the place where we print error if it is found -->
+<div>
+    <ul *ngFor="let dep of deplist">
+        <li><h4> {{dep.id}}. {{dep.name}}</h4></li>     <!-- This is to print the members of department using ngFor -->
+    </ul>
+</div>
+
+<!-- <h2 align=center class="text-danger" [class]="successClass"> {{name}} </h2>  <!-- if we have one class to be declared and one class to be binding it only choose the class with binding-->
+
+<!-- <div align=center>
+
+    <input [disabled]="disabledId" #myInput [id]="mytext" type="text" value="Nagaraju" placeholder="Please enter a String"> <!-- Property Binding which binds the id to this element -->
+
+    <!-- <h2 [class.text-danger]="hasError" > Binding a class property for checking the boolean value </h2> <!-- This binds a class property based on the hasError variable, this only possible when want to apply condition to a single class -->
+
+    <!-- <h2 [ngClass]="messageClasses" > This is a NGCLASS object to bind all the properties to the text</h2> <!-- This is a NGCLASS object to conditionally apply all the properties to this element--> 
+
+    <!-- <h2 [style.color] = "'orange'"> This is to check the Style Binding </h2> <!-- This is to set the style color to a particular element -->
+
+    <!-- <h2 [style.color] = "styleBind"> This is to check the Style Binding with property value </h2> <!-- This is to set the style color to a particular element with properties set -->
+
+    <!-- <h2 [style.color]="hasError ? 'red' : 'green'" > This is to check the stye binding with if case </h2> <!-- This is to set the style color based on the property set with if else case-->
+
+    <!-- <h2 [ngStyle]= "titleStyles"> This is to check the stye binding with ngStye object </h2> <!-- This is to set the style color based on the property set with if else case-->
+
+    <!-- <button (click)="onClick()" (dblclick)="onDblClick()">Introduce</button> {{intro}} <!-- This is an event that gets triggered when the user clicks one time or two times -->
+
+    <!-- <button (click)="logConsole(myInput.value)">Log to Console</button> <!-- Using the tempalate reference variable which sends data DOM element and properties to the class -->
+
+    <!-- <input [(ngModel)] = "updateValue" type="text"> {{updateValue}} <!-- Implementing two way binding using the ngModel property -->
+
+<!-- </div>   -->

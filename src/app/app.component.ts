@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Rest-Api';
+  title = 'Chiranjeevi';
+  message = '';
+  public compoentCommunication = 'This is from App Component';  // This is the property which we are trying to send it to student component
 }

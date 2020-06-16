@@ -1,0 +1,57 @@
+<h2 align=center>Student-List!</h2>
+<h2 align=center [style.color]="'purple'"> {{parentData}} </h2>                    <!-- This is the input coming from the parent called app compoenent -->
+<div align=center>
+    <button class="button button1" (click)="checkTrue()">True</button>   <!-- This sets the isTrue property to true -->
+    <button class="button button2" (click)="checkFalse()">False</button> <!-- This sets the isTrue property to false -->
+    <h2 *ngIf="isTrue; then thenBlock else elseBlock">  </h2> <!-- Checks the isTrue property and evalute accordingly -->
+    
+    <ng-template #thenBlock > 
+        <h2 [style.color] = "'green'" > This is to Check the if else case in Angular </h2>      <!-- If case -->
+    </ng-template>
+
+    <ng-template #elseBlock >
+        <h2 [style.color] = "'red'" > Sorry..! This is Hidden </h2>                          <!-- Else case -->
+    </ng-template>
+
+    <label for="cars" > Choose a Color :  </label>
+    <select name="cars" #cars>                                          <!-- This has an template reference named cars which gets updated when the user choose -->
+        <option value="black">Choose</option>
+        <option value="orange">Orange</option>
+        <option value="green">Green</option>                            <!-- Drop down to give options to the user-->                   
+        <option value="blue">Blue</option>
+        <option value="purple">Purple</option>  
+    </select>
+    <button [style.color]="'yellow'" class=" button1"(click)="changeColor(cars.value)"> Submit </button>    <!-- This sets the color property with the color chosen by the user -->
+    <div [ngSwitch]="color" >
+        <h2 *ngSwitchCase="'orange'" [style.color] = "'orange'"> You Choose Orange color </h2>
+        <h2 *ngSwitchCase="'green'" [style.color] = "'green'"> You Choose Green color </h2>     <!-- This is a Switch case that executes as per the color chosen by the user -->
+        <h2 *ngSwitchCase="'blue'" [style.color] = "'blue'"> You Choose Blue color </h2>
+        <h2 *ngSwitchCase="'purple'" [style.color] = "'purple'"> You Choose Purple color </h2>
+        <h2 *ngSwitchDefault> Sorry! you haven't choose any color </h2>
+    </div>
+
+    <div *ngFor = "let l of list; index as i" >
+        <h2 [style.color]="cars.value" >{{[i+1]}} -> {{l}}</h2>                <!-- This is the ngFor to print the elements of the list -->
+    </div>
+
+    <!-- <h2 [style.color]="'purple'"> {{parentData}} </h2>                    This is the input coming from the parent called app compoenent -->
+
+    <!-- <button (click)="sendEvent()" [style.color]="'blue'">Send</button>    This is the button that calls the te sendEvent method -->
+    <div [style.color] = "cars.value">
+        <h2> {{name | lowercase}} -> Lower Case </h2> 
+        <h2> {{name | uppercase}} -> Upper Case</h2>
+        <h2> {{name | titlecase}} -> Title Case </h2>                           <!-- These are the different types of pipes in Angular -->
+        <h2> {{name | slice:3 }}  -> Slices from index 3 </h2>
+        <h2> {{name | slice:3:6}} -> Slices from index 3 to 6 (not included)</h2>
+        <h2> {{person | json }}     -> Prints in JSON format </h2>
+        <h2> {{0.3 | percent}} -> Shows percent symbol </h2>
+        <h2> {{60.75 | currency}} -> Prints the currency (by Default '$') </h2>
+        <h2> {{90.45 | currency: 'INR'}} -> Prints the specific currency symbol if mentioned  </h2>
+        <h2> {{date}} -> Normal Time Stamp </h2>
+        <h2> {{date | date:'short'}} -> Piped Date and Time to short</h2>
+        <h2> {{date | date:'shortDate'}} -> Piped Date to short </h2>
+        <h2> {{date | date:'shortTime'}} -> Piped Time to short </h2>
+        <h2> {{date | date:'longDate'}} -> Piped Date to long</h2>
+        <h2> {{date | date:'longTime'}} -> Piped Time to long</h2>
+    </div>
+</div>

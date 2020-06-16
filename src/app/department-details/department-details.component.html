@@ -1,0 +1,7 @@
+<h2> Department-DetailsList! </h2>
+<h3>{{errorMsg}}</h3>                   <!-- This is the place where we print error if it is found -->
+<div>
+    <ul *ngFor="let dep of departmentList">
+        <li><h4> {{dep.id}}. {{dep.name}} - {{dep.gender}} - {{dep.degree}}</h4></li>   <!-- This is to print the members and detials of department using ngFor -->
+    </ul>
+</div>
