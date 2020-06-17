@@ -7,11 +7,15 @@ import {FormsModule } from '@angular/forms';
 import { StudentServiceService } from './student-service.service';
 import { DepartmentServiceService } from './department-service.service';
 import { HttpClientModule } from '@angular/common/http';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { DepartmentMemberComponent } from './department-member/department-member.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    routingComponents
+    routingComponents,
+    PagenotfoundComponent,
+    DepartmentMemberComponent
   ],
   imports: [
     BrowserModule,

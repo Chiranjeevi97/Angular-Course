@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DepartmentServiceService } from '../department-service.service';
+import { RouterLink, Router } from '@angular/router';
 
 @Component({
   selector: 'app-department-list',
@@ -9,7 +10,7 @@ import { DepartmentServiceService } from '../department-service.service';
 
 export class DepartmentListComponent implements OnInit {
 
-  constructor(private depService: DepartmentServiceService) { }
+  constructor(private depService: DepartmentServiceService, private router: Router) { }
 
   public deplist = [];
   public errorMsg;
@@ -17,6 +18,10 @@ export class DepartmentListComponent implements OnInit {
     this.depService.getDepartmentList()
     .subscribe(data => this.deplist = data,         // This is the subscribe method that gets the observable data from the server
                 error => this.errorMsg = error);    // This is an error which gets triggered if an error is occured during the page load
+  }
+
+  public onSelect(department) {
+    this.router.navigate(['/departments', department.id] );
   }
 
    /*  public name = 'Chiranjeevi';

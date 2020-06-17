@@ -1,8 +1,10 @@
 <h2> Department-List!</h2>
 <h3> {{errorMsg}}</h3>              <!-- This is the place where we print error if it is found -->
 <div>
-    <ul *ngFor="let dep of deplist">
-        <li><h4> {{dep.id}}. {{dep.name}}</h4></li>     <!-- This is to print the members of department using ngFor -->
+    <ul class="items" >
+        <li (click)= 'onSelect(dep)' *ngFor="let dep of deplist">
+            <span class="badge" > {{dep.id}}</span>  {{dep.name}}        <!-- This is to print the members and detials of department using ngFor -->
+        </li>   
     </ul>
 </div>
 
