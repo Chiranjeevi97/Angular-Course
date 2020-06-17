@@ -42,7 +42,7 @@ export class DepartmentMemberComponent implements OnInit {
     if (nextId >= this.size) {
       nextId = this.size;
     // tslint:disable-next-line: align
-    }this.router.navigate(['/departments', nextId]);
+    }this.router.navigate( ['../', nextId], {relativeTo: this.route});
     this.getAll();
   }
 
@@ -51,13 +51,14 @@ export class DepartmentMemberComponent implements OnInit {
     if (prevId <= 0) {
       prevId = 1;
     }
-    this.router.navigate(['/departments', prevId]);
+    this.router.navigate(['../', prevId], {relativeTo: this.route});
     this.getAll();
   }
 
   public goback() {
     const selectedId = this.depId ? this.depId : null;
-    this.router.navigate(['/departments', {id: selectedId}]);
+    // this.router.navigate(['/departments', {id: selectedId}]);
+    this.router.navigate(['../', {id: selectedId}], {relativeTo: this.route});
   }
 
 }
