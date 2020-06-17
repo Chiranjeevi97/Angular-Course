@@ -3,6 +3,7 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { DepartmentServiceService } from '../department-service.service';
 import {Location } from '@angular/common';
 import { Department } from '../department';
+import { relative } from 'path';
 
 @Component({
   selector: 'app-department-member',
@@ -13,7 +14,6 @@ export class DepartmentMemberComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private departmentService: DepartmentServiceService,
-              private location: Location,
               private router: Router) { }
   public depId;
   public depMem;
@@ -32,6 +32,7 @@ export class DepartmentMemberComponent implements OnInit {
         this.departmentService.getDepartmentList().subscribe(data => data.forEach(element => {
         if (element.id === this.depId) {
           this.depMem = element;
+          console.log(this.depMem);
         }
         this.size = data.length;
         }) );
@@ -59,6 +60,15 @@ export class DepartmentMemberComponent implements OnInit {
     const selectedId = this.depId ? this.depId : null;
     // this.router.navigate(['/departments', {id: selectedId}]);
     this.router.navigate(['../', {id: selectedId}], {relativeTo: this.route});
+  }
+
+  getOverview() {
+    this.router.navigate(['overview'], {relativeTo: this.route});
+  }
+
+  getContact() {
+    this.router.navigate(['contact'], {relativeTo: this.route});
+
   }
 
 }

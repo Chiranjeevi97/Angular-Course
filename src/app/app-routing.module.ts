@@ -6,12 +6,21 @@ import { StudentListComponent } from './student-list/student-list.component';
 import { StudentDetailsComponent } from './student-details/student-details.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { DepartmentMemberComponent } from './department-member/department-member.component';
+import { OverviewComponent } from './overview/overview.component';
+import { ContactComponent } from './contact/contact.component';
 
 const routes: Routes = [
     {path: '', redirectTo: 'departments', pathMatch: 'full' },
     {path: 'departments', component: DepartmentListComponent},
     {path: 'departmentdetails', component: DepartmentDetailsComponent},
-    {path: 'departments/:id', component: DepartmentMemberComponent },
+    {
+      path: 'departments/:id',
+      component: DepartmentMemberComponent,
+      children: [
+        {path: 'overview', component: OverviewComponent},
+        {path: 'contact', component: ContactComponent}
+      ]
+    },
     {path: 'students', component: StudentListComponent},           // This is the routes array which contains a path and component to route
     {path: 'studentdetails', component: StudentDetailsComponent},
     {path: '**', component: PagenotfoundComponent}

@@ -9,13 +9,17 @@ import { DepartmentServiceService } from './department-service.service';
 import { HttpClientModule } from '@angular/common/http';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { DepartmentMemberComponent } from './department-member/department-member.component';
+import { OverviewComponent } from './overview/overview.component';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     routingComponents,
     PagenotfoundComponent,
-    DepartmentMemberComponent
+    DepartmentMemberComponent,
+    OverviewComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,

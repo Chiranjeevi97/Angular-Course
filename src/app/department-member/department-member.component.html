@@ -1,10 +1,15 @@
 <div align="center" >
     <h1> Hello You Reached Department -> {{depId}}</h1>
      
-        <h1> Name: {{depMem.name}} </h1>
-        <h1> Id: {{depMem.id}}</h1>
-        <h1> Gender: {{depMem.gender}}</h1>
-        <h1> Degree: {{depMem.degree}}</h1>
+        <h3> Name: {{depMem.name}} </h3>
+        <h3> Id: {{depMem.id}}</h3>
+        <h3> Gender: {{depMem.gender}}</h3>
+        <h3> Degree: {{depMem.degree}}</h3>
+    <p>
+        <button class="items" (click)="getOverview()"> Overview</button>
+        <button (click)="getContact()"> Contact</button>
+    </p>
+        <router-outlet></router-outlet>
     <button (click)= 'goPrevious()'> Previous </button>
     <button class="items" (click)="goback()"> Back </button>
     <button (click)= 'goNext()'> Next </button>   
