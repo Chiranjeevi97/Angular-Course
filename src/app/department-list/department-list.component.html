@@ -2,7 +2,7 @@
 <h3> {{errorMsg}}</h3>              <!-- This is the place where we print error if it is found -->
 <div>
     <ul class="items" >
-        <li (click)= 'onSelect(dep)' *ngFor="let dep of deplist">
+        <li [class.selected]="isSelected(dep)" (click)= 'onSelect(dep)' *ngFor="let dep of deplist">
             <span class="badge" > {{dep.id}}</span>  {{dep.name}}        <!-- This is to print the members and detials of department using ngFor -->
         </li>   
     </ul>

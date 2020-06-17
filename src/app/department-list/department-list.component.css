@@ -25,7 +25,10 @@
     height: 1.6em;
     border-radius: 4px;
   }
-  
+  .items li.selected {
+      background-color: #cfd8dc;
+      color: white
+  }
   .items li:hover {
     color: #607D8B;
     background-color: #DDD;

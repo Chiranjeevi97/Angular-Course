@@ -4,5 +4,7 @@
     {"id": 3, "name": "Chandrika", "gender": "F", "degree": "Diploma" },
     {"id": 4, "name": "Niharika", "gender": "F", "degree": "Pharm-D" },
     {"id": 5, "name": "Yogi", "gender": "M", "degree": "School" },
-    {"id": 6, "name": "Lokesh", "gender": "M", "degree": "School" }
+    {"id": 6, "name": "Lokesh", "gender": "M", "degree": "School" },
+    {"id": 7, "name": "Yuva Sree", "gender": "F", "degree": "School" },
+    {"id": 8, "name": "Reva Sree", "gender": "F", "degree": "School" }
 ]

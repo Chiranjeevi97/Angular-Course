@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DepartmentServiceService } from '../department-service.service';
-import { RouterLink, Router } from '@angular/router';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-department-list',
@@ -10,18 +10,30 @@ import { RouterLink, Router } from '@angular/router';
 
 export class DepartmentListComponent implements OnInit {
 
-  constructor(private depService: DepartmentServiceService, private router: Router) { }
+  constructor(private depService: DepartmentServiceService, private router: Router, private route: ActivatedRoute) { }
 
   public deplist = [];
   public errorMsg;
+  public selectedId;
+
   ngOnInit() {
-    this.depService.getDepartmentList()
-    .subscribe(data => this.deplist = data,         // This is the subscribe method that gets the observable data from the server
-                error => this.errorMsg = error);    // This is an error which gets triggered if an error is occured during the page load
+        // tslint:disable-next-line: deprecation
+        this.route.paramMap.subscribe((params: ParamMap) => {
+          // tslint:disable-next-line: no-shadowed-variable tslint:disable-next-line: radix
+          this.selectedId = parseInt(params.get('id'));
+        });
+
+        this.depService.getDepartmentList()
+        .subscribe(data => this.deplist = data,         // This is the subscribe method that gets the observable data from the server
+                   error => this.errorMsg = error);    // This is an error which gets triggered if an error is occured during the page load
   }
 
   public onSelect(department) {
     this.router.navigate(['/departments', department.id] );
+  }
+
+  isSelected(department) {
+    return department.id === this.selectedId;
   }
 
    /*  public name = 'Chiranjeevi';

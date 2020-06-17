@@ -20,17 +20,21 @@ export class DepartmentMemberComponent implements OnInit {
   public size;
 
   ngOnInit() {
-    // tslint:disable-next-line: deprecation
-    this.route.paramMap.subscribe((params: ParamMap) => {
-      // tslint:disable-next-line: no-shadowed-variable tslint:disable-next-line: radix
-      this.depId = parseInt(params.get('id'));
-    });
-    this.departmentService.getDepartmentList().subscribe(data => data.forEach(element => {
-    if (element.id === this.depId) {
-      this.depMem = element;
-    }
-    this.size = data.length;
-    }) );
+    this.getAll();
+  }
+
+  public getAll() {
+        // tslint:disable-next-line: deprecation
+        this.route.paramMap.subscribe((params: ParamMap) => {
+          // tslint:disable-next-line: no-shadowed-variable tslint:disable-next-line: radix
+          this.depId = parseInt(params.get('id'));
+        });
+        this.departmentService.getDepartmentList().subscribe(data => data.forEach(element => {
+        if (element.id === this.depId) {
+          this.depMem = element;
+        }
+        this.size = data.length;
+        }) );
   }
 
   public goNext() {
@@ -39,11 +43,7 @@ export class DepartmentMemberComponent implements OnInit {
       nextId = this.size;
     // tslint:disable-next-line: align
     }this.router.navigate(['/departments', nextId]);
-    this.departmentService.getDepartmentList().subscribe(data => data.forEach(element => {
-      if (element.id === this.depId) {
-        this.depMem = element;
-      }
-      }) );
+    this.getAll();
   }
 
   public goPrevious() {
@@ -52,15 +52,12 @@ export class DepartmentMemberComponent implements OnInit {
       prevId = 1;
     }
     this.router.navigate(['/departments', prevId]);
-    this.departmentService.getDepartmentList().subscribe(data => data.forEach(element => {
-      if (element.id === this.depId) {
-        this.depMem = element;
-      }
-      }) );
+    this.getAll();
   }
 
   public goback() {
-    this.location.back();
+    const selectedId = this.depId ? this.depId : null;
+    this.router.navigate(['/departments', {id: selectedId}]);
   }
 
 }
